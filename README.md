@@ -57,11 +57,37 @@ Retrieve detailed user statistics.
 }
 ```
 
+### 2. LeetCode
+Retrieve submission statistics by difficulty.
+
+* **URL:** `/api/lc/:username`
+* **Method:** `GET`
+* **Success Response (200):**
+```json
+{
+  "username": "stkossman",
+  "totalSolved": 14,
+  "totalQuestions": 3792,
+  "easy": {
+    "solved": 13,
+    "total": 918
+  },
+  "medium": {
+    "solved": 1,
+    "total": 1978
+  },
+  "hard": {
+    "solved": 0,
+    "total": 896
+  }
+}
+```
+
 ## Roadmap
 
 - [x] Setup: Project initialization (Express, TS, Biome).
 - [x] Codewars: Codewars REST API integration.
-- [ ] LeetCode: LeetCode GraphQL API integration.
+- [x] LeetCode: LeetCode GraphQL API integration.
 - [ ] Github: Github API integration.
 - [ ] Aggregation: Endpoint for combined statistics from both platforms.
 - [ ] Frontend: Client-side development.
