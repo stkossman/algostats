@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import codewarsRoutes from './routes/codewars.routes.js';
+import leetcodeRoutes from './routes/leetcode.routes.js';
 
 dotenv.config();
 
@@ -12,6 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api/cw', codewarsRoutes);
+app.use('/api/lc', leetcodeRoutes);
 
 app.get('/', (req, res) => {
   res.json({
@@ -19,6 +21,7 @@ app.get('/', (req, res) => {
     message: 'Algostats Hub API is running',
     endpoints: {
       codewars: '/api/cw/:username',
+      leetcode: '/api/lc/:username',
     },
   });
 });
