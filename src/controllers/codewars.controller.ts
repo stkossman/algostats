@@ -1,5 +1,5 @@
 import type { Request, Response } from 'express';
-import * as codewarsService from '../services/codewars.services.js';
+import * as codewarsService from '../services/codewars.service.js';
 
 export const getStats = async (req: Request, res: Response): Promise<void> => {
   const { username } = req.params;

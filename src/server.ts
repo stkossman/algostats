@@ -1,9 +1,10 @@
-import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import express from 'express';
+import aggregationRoutes from './routes/aggregation.routes.js';
 import codewarsRoutes from './routes/codewars.routes.js';
-import leetcodeRoutes from './routes/leetcode.routes.js';
 import githubRoutes from './routes/github.routes.js';
+import leetcodeRoutes from './routes/leetcode.routes.js';
 
 dotenv.config();
 
@@ -16,6 +17,7 @@ app.use(express.json());
 app.use('/api/cw', codewarsRoutes);
 app.use('/api/lc', leetcodeRoutes);
 app.use('/api/gh', githubRoutes);
+app.use('/api/all', aggregationRoutes);
 
 app.get('/', (req, res) => {
   res.json({
@@ -25,6 +27,7 @@ app.get('/', (req, res) => {
       codewars: '/api/cw/:username',
       leetcode: '/api/lc/:username',
       github: '/api/gh/:username',
+      all: '/api/all/:username',
     },
   });
 });

@@ -22,7 +22,6 @@ Retrieve detailed user statistics.
 
 ```json
 {
-{
   "username": "kossman",
   "name": "Andrii Stavskyi",
   "honor": 351,
@@ -84,7 +83,7 @@ Retrieve submission statistics by difficulty.
 ```
 
 ### 3. Github
-Retrieve user statistics (followers, repositories, stars, contributions)
+Retrieve user statistics (followers, repositories, stars, contributions).
 
 * **URL:** `/api/gh/:username`
 * **Method:** `GET`
@@ -100,11 +99,51 @@ Retrieve user statistics (followers, repositories, stars, contributions)
 }
 ```
 
+### 4. All
+Retrieve all user statistics (Codewars, LeetCode, Github).
+
+*Note: Returns `null` for specific platforms if the user is not found.*
+
+* **URL:** `/api/all/:username`
+* **Method:** `GET`
+* **Success Response (200):**
+```json
+{
+  "username": "stkossman",
+  "codewars": null,
+  "leetcode": {
+    "username": "stkossman",
+    "totalSolved": 14,
+    "totalQuestions": 3792,
+    "easy": {
+      "solved": 13,
+      "total": 918
+    },
+    "medium": {
+      "solved": 1,
+      "total": 1978
+    },
+    "hard": {
+      "solved": 0,
+      "total": 896
+    }
+  },
+  "github": {
+    "username": "stkossman",
+    "name": "Andrii Stavskyi",
+    "followers": 3,
+    "totalRepos": 30,
+    "totalStars": 3,
+    "totalContributions": 567
+  }
+}
+```
+
 ## Roadmap
 
 - [x] Setup: Project initialization (Express, TS, Biome).
 - [x] Codewars: Codewars REST API integration.
 - [x] LeetCode: LeetCode GraphQL API integration.
 - [x] Github: Github API integration.
-- [ ] Aggregation: Endpoint for combined statistics from both platforms.
+- [x] Aggregation: Endpoint for combined statistics from both platforms.
 - [ ] Frontend: Client-side development.
